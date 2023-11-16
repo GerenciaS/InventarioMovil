@@ -1,0 +1,11 @@
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Debug\Inventarios Movil.exe
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Debug\Inventarios Movil.pdb
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Debug\System.Data.SqlClient.dll
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\ResolveAssemblyReference.cache
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios_Movil.FrmAcceso.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios_Movil.FrmCaptura.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios_Movil.FrmUbicacion.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios_Movil.Properties.Resources.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios Movil.csproj.GenerateResource.Cache
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios Movil.exe
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Debug\Inventarios Movil.pdb

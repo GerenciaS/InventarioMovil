@@ -1,0 +1,22 @@
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Release\Inventarios Movil.exe
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Release\Inventarios Movil.pdb
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\bin\Release\System.Data.SqlClient.dll
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\ResolveAssemblyReference.cache
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmAcceso.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmCaptura.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmUbicacion.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.Properties.Resources.resources
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.csproj.GenerateResource.Cache
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.exe
+E:\eBo\Datos\Proyectos\.net 2008\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.pdb
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\bin\Release\Inventarios Movil.exe
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\bin\Release\Inventarios Movil.pdb
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\bin\Release\System.Data.SqlClient.dll
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\ResolveAssemblyReference.cache
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmAcceso.resources
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmCaptura.resources
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmUbicacion.resources
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios_Movil.Properties.Resources.resources
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.csproj.GenerateResource.Cache
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.exe
+E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.pdb
