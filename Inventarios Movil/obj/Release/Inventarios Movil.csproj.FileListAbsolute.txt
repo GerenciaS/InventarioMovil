@@ -20,3 +20,14 @@ E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\o
 E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.csproj.GenerateResource.Cache
 E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.exe
 E:\Software\Visual Studio 2008 Profesional\Inventarios Movil\Inventarios Movil\obj\Release\Inventarios Movil.pdb
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\bin\Release\Inventarios Movil.exe
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\bin\Release\Inventarios Movil.pdb
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\bin\Release\System.Data.SqlClient.dll
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\ResolveAssemblyReference.cache
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmAcceso.resources
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmCaptura.resources
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios_Movil.FrmUbicacion.resources
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios_Movil.Properties.Resources.resources
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios Movil.csproj.GenerateResource.Cache
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios Movil.exe
+C:\Desarrollos\GitHub\InventarioMovil\Inventarios Movil\obj\Release\Inventarios Movil.pdb
