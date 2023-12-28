@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUbicacion));
             this.cmbUbicacion = new System.Windows.Forms.ComboBox();
             this.cmbConteo = new System.Windows.Forms.ComboBox();
             this.cmdCargar = new System.Windows.Forms.Button();
@@ -38,11 +39,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUbicacion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SuspendLayout();
             // 
             // cmbUbicacion
             // 
-            this.cmbUbicacion.Location = new System.Drawing.Point(86, 27);
+            this.cmbUbicacion.Location = new System.Drawing.Point(80, 27);
             this.cmbUbicacion.Name = "cmbUbicacion";
             this.cmbUbicacion.Size = new System.Drawing.Size(118, 23);
             this.cmbUbicacion.TabIndex = 0;
@@ -51,14 +53,14 @@
             // 
             this.cmbConteo.Items.Add("Conteo 1");
             this.cmbConteo.Items.Add("Conteo 2");
-            this.cmbConteo.Location = new System.Drawing.Point(86, 85);
+            this.cmbConteo.Location = new System.Drawing.Point(72, 85);
             this.cmbConteo.Name = "cmbConteo";
             this.cmbConteo.Size = new System.Drawing.Size(151, 23);
             this.cmbConteo.TabIndex = 1;
             // 
             // cmdCargar
             // 
-            this.cmdCargar.Location = new System.Drawing.Point(210, 27);
+            this.cmdCargar.Location = new System.Drawing.Point(201, 26);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(27, 23);
             this.cmdCargar.TabIndex = 2;
@@ -67,7 +69,7 @@
             // 
             // cmdComenzar
             // 
-            this.cmdComenzar.Location = new System.Drawing.Point(34, 134);
+            this.cmdComenzar.Location = new System.Drawing.Point(32, 119);
             this.cmdComenzar.Name = "cmdComenzar";
             this.cmdComenzar.Size = new System.Drawing.Size(75, 35);
             this.cmdComenzar.TabIndex = 3;
@@ -76,7 +78,7 @@
             // 
             // cmdSalir
             // 
-            this.cmdSalir.Location = new System.Drawing.Point(115, 134);
+            this.cmdSalir.Location = new System.Drawing.Point(120, 119);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(76, 35);
             this.cmdSalir.TabIndex = 4;
@@ -113,24 +115,34 @@
             // txtUbicacion
             // 
             this.txtUbicacion.Enabled = false;
-            this.txtUbicacion.Location = new System.Drawing.Point(86, 56);
+            this.txtUbicacion.Location = new System.Drawing.Point(69, 56);
             this.txtUbicacion.Name = "txtUbicacion";
             this.txtUbicacion.Size = new System.Drawing.Size(151, 23);
             this.txtUbicacion.TabIndex = 8;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(16, 90);
+            this.label2.Location = new System.Drawing.Point(8, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 18);
+            this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.Text = "Conteo";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 160);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(227, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // FrmUbicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 455);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(233, 285);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUbicacion);
             this.Controls.Add(this.label1);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUbicacion;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

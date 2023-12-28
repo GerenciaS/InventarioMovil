@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAcceso));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtUsuarioNombre = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SuspendLayout();
             // 
             // label1
@@ -102,12 +104,22 @@
             this.txtPass.TabIndex = 9;
             this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 104);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(239, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            // 
             // FrmAcceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(268, 142);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(247, 239);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUsuarioNombre);
             this.Controls.Add(this.txtUsuario);
@@ -133,6 +145,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtUsuarioNombre;
         private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

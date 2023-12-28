@@ -50,40 +50,39 @@ namespace Inventarios_Movil
 
         private void txtProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar==Convert.ToChar(Keys.Enter))
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 SqlConnection cn = Conexion.conectar();
-                try
+
+                if (txtProducto.Text != "")
                 {
-                    lblProucto.Text = "";                    
-                    SqlCommand comando = new SqlCommand("select prodestab.cod_prod,prodestab.codigo_barras_pieza as barras,prodestab.descripcion,prodestab.costo,prodestab.precio "
-                    + " from prodestab left join barras_adicionales on prodestab.cod_prod=barras_adicionales.cod_prod where prodestab.cod_estab=@estab and (prodestab.cod_prod=@prod or prodestab.codigo_barras_pieza=@prod)", cn);
-                    comando.Parameters.AddWithValue("@estab", usuario.estab);
-                    comando.Parameters.AddWithValue("@prod", txtProducto.Text.Trim());
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    DataTable dt = new DataTable();
-                    da.SelectCommand = comando;
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
+                    try
                     {
-                        foreach (DataRow fila in dt.Rows)
-                        {
-                            registro[0]=usuario.estab.Trim();
-                            registro[1]=fila["cod_prod"].ToString().Trim();
-                            registro[2]= ubicacion.Trim();
-                            registro[3]= "";
-                            registro[4]=DateTime.Now.ToString("yyyyMMdd");
-                            registro[5]=fila["barras"].ToString().Trim();
-                            lblProucto.Text = fila["descripcion"].ToString() + "Costo:" + fila["costo"].ToString() + " Precio:" + fila["precio"].ToString();
-                        }
-                    }
-                    else
-                    {
-                        comando.CommandText = "select prodestab.cod_prod,case when barras_adicionales.codigo_barras_pieza='' then barras_adicionales.codigo_barras_unidad else barras_adicionales.codigo_barras_pieza end as barras, prodestab.descripcion,prodestab.costo,prodestab.precio "
-                        + " from prodestab left join barras_adicionales on prodestab.cod_prod=barras_adicionales.cod_prod where prodestab.cod_estab=@estab and (barras_adicionales.codigo_barras_pieza=@prod "
-                        + " or barras_adicionales.codigo_barras_unidad=@prod)";
-                        dt.Rows.Clear();
+                        lblProducto.Text = "";
+
+                        SqlCommand comand = new SqlCommand("SP_OBTENERDATOSPRODUCTO", cn);
+
+                        comand.CommandType = CommandType.StoredProcedure;
+                        comand.Parameters.AddWithValue("@Establecimiento", usuario.estab);
+                        comand.Parameters.AddWithValue("@Producto", txtProducto.Text.Trim());
+
+                        SqlDataAdapter da = new SqlDataAdapter(comand);
+                        DataTable dt = new DataTable();
                         da.Fill(dt);
+
+                        //Davidmtz.- Se cambia la formade consultar la informacion por un procedimiento almacenado
+                        //lblProucto.Text = "";                 
+                        //SqlCommand comando = new SqlCommand("select prodestab.cod_prod,prodestab.codigo_barras_pieza as barras,prodestab.descripcion,prodestab.costo,prodestab.precio "
+                        //+ " from prodestab left join barras_adicionales on prodestab.cod_prod=barras_adicionales.cod_prod where prodestab.cod_estab=@estab and (prodestab.cod_prod=@prod or prodestab.codigo_barras_pieza=@prod)", cn);
+
+                        //comando.Parameters.AddWithValue("@estab", usuario.estab);
+                        //comando.Parameters.AddWithValue("@prod", txtProducto.Text.Trim());
+                        //SqlDataAdapter da = new SqlDataAdapter();
+                        //DataTable dt = new DataTable();
+                        //da.SelectCommand = comando;
+                        //da.Fill(dt);
+
                         if (dt.Rows.Count > 0)
                         {
                             foreach (DataRow fila in dt.Rows)
@@ -94,67 +93,141 @@ namespace Inventarios_Movil
                                 registro[3] = "";
                                 registro[4] = DateTime.Now.ToString("yyyyMMdd");
                                 registro[5] = fila["barras"].ToString().Trim();
-                                lblProucto.Text = fila["descripcion"].ToString() + " Costo:" + fila["costo"].ToString() + " Precio" + fila["precio"].ToString();
+                                //lblProucto.Text = fila["descripcion"].ToString() + "Costo:" + fila["costo"].ToString() + " Precio:" + fila["precio"].ToString();
+                                lblProducto.Text = fila["descripcion"].ToString();
+                                lblCosto.Text = "Costo: " + fila["costo"].ToString();
+                                lblPrecio.Text = "Precio: " + fila["precio"].ToString();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Producto no encontrado");
+
+                            //Davidmtz.- Se cambia la formade consultar la informacion por un procedimiento almacenado
+
+                            //comand.CommandType = "execute SP_OBTENERDATOSPRODUCTO2 '" + usuario.estab + "','" + txtProducto.Text.Trim() + "'";
+
+                            //select prodestab.cod_prod,case when barras_adicionales.codigo_barras_pieza='' then barras_adicionales.codigo_barras_unidad else barras_adicionales.codigo_barras_pieza end as barras, prodestab.descripcion,prodestab.costo,prodestab.precio "
+                            //+ " from prodestab left join barras_adicionales on prodestab.cod_prod=barras_adicionales.cod_prod where prodestab.cod_estab=@estab and (barras_adicionales.codigo_barras_pieza=@prod "
+                            //+ " or barras_adicionales.codigo_barras_unidad=@prod)";
+
+                            SqlCommand comand2 = new SqlCommand("SP_OBTENERDATOSPRODUCTO2", cn);
+
+                            comand2.CommandType = CommandType.StoredProcedure;
+                            comand2.Parameters.AddWithValue("@Establecimiento", usuario.estab);
+                            comand2.Parameters.AddWithValue("@Producto", txtProducto.Text.Trim());
+
+                            SqlDataAdapter da2 = new SqlDataAdapter(comand2);
+
+                            dt.Rows.Clear();
+                            da2.Fill(dt);
+                            if (dt.Rows.Count > 0)
+                            {
+                                foreach (DataRow fila in dt.Rows)
+                                {
+                                    registro[0] = usuario.estab.Trim();
+                                    registro[1] = fila["cod_prod"].ToString().Trim();
+                                    registro[2] = ubicacion.Trim();
+                                    registro[3] = "";
+                                    registro[4] = DateTime.Now.ToString("yyyyMMdd");
+                                    registro[5] = fila["barras"].ToString().Trim();
+                                    lblProducto.Text = fila["descripcion"].ToString();
+                                    lblCosto.Text = "Costo: " + fila["costo"].ToString();
+                                    lblPrecio.Text = "Precio: " + fila["precio"].ToString();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Producto no encontrado");
+                            }
                         }
+                        if (lblProducto.Text != "")
+                        {
+                            txtCantidad.Enabled = true;
+                            txtCantidad.Focus();
+                        }
+                        if (cn.State.ToString() == "Open") { cn.Close(); }
                     }
-                    if (lblProucto.Text != "")
+                    catch (Exception ex)
                     {
-                        txtCantidad.Enabled = true;
-                        txtCantidad.Focus();
+                        if (cn.State.ToString() == "Open") { cn.Close(); }
+                        MessageBox.Show(ex.Message);
                     }
-                    if (cn.State.ToString() == "Open") { cn.Close(); }
                 }
-                catch (Exception ex) 
+                else
                 {
-                    if (cn.State.ToString() == "Open") { cn.Close(); }
-                    MessageBox.Show(ex.Message);
-                }                
+                    MessageBox.Show("Favor de Capturar un Producto");
+                }
             }
+           
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsNumber(e.KeyChar)&&!char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-                return;
-            }
-            if(e.KeyChar==Convert.ToChar(Keys.Enter))
-            {                
-                try 
+                       
+                if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
                 {
-                    SqlConnection cn = Conexion.conectar();
-                    SqlCommand comando = new SqlCommand();
-                    comando.Connection = cn;
-                    switch (conteo)
+                    e.Handled = true;
+                    return;
+                }
+
+
+
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtCantidad.Text != "")
                     {
-                        case "0":
-                            comando.CommandText = "Insert into conteos(cod_estab,cod_prod,ubicacion,conteo1,conteo2,codigo_barras)"
-                            + " Values('" + registro[0].ToString() + "','" + registro[1].ToString() + "','" + registro[2].ToString() + "'," + txtCantidad.Text.Trim() + ",0,'" + registro[5].ToString() + "')";
-                            break;
-                        case "1":
-                            comando.CommandText = "Insert into conteos(cod_estab,cod_prod,ubicacion,conteo1,conteo2,codigo_barras)"
-                            + " Values('" + registro[0].ToString() + "','" + registro[1].ToString() + "','" + registro[2].ToString() + "',0," + txtCantidad.Text.Trim() + ",'" + registro[5].ToString() + "')";
-                            break;
+                        try
+                        {
+                            SqlConnection cn = Conexion.conectar();
+                            SqlCommand comando = new SqlCommand();
+                            comando.Connection = cn;
+                            switch (conteo)
+                            {
+                                case "0":
+                                    comando.CommandText = "Insert into conteos(cod_estab,cod_prod,ubicacion,conteo1,conteo2,codigo_barras)"
+                                    + " Values('" + registro[0].ToString() + "','" + registro[1].ToString() + "','" + registro[2].ToString() + "'," + txtCantidad.Text.Trim() + ",0,'" + registro[5].ToString() + "')";
+                                    break;
+                                case "1":
+                                    comando.CommandText = "Insert into conteos(cod_estab,cod_prod,ubicacion,conteo1,conteo2,codigo_barras)"
+                                    + " Values('" + registro[0].ToString() + "','" + registro[1].ToString() + "','" + registro[2].ToString() + "',0," + txtCantidad.Text.Trim() + ",'" + registro[5].ToString() + "')";
+                                    break;
+                            }
+                            comando.ExecuteNonQuery();
+                            registros++;
+                            lblRegistros.Text = registros.ToString() + " Registros en la ubicacion";
+                            txtProducto.Focus();
+                            txtProducto.SelectAll();
+                            txtProducto.Text = "";
+                            txtCantidad.Text = "";
+                            txtCantidad.Enabled = false;
+                            lblProducto.Text = "DATOS DEL PRODUCTO";
+                            lblCosto.Text = "";
+                            lblPrecio.Text = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
-                    comando.ExecuteNonQuery();
-                    registros++;
-                    lblRegistros.Text = registros.ToString() + " Registros en la ubicacion";
-                    txtProducto.Focus();
-                    txtProducto.SelectAll();
-                    txtCantidad.Text = "";
-                    txtCantidad.Enabled = false;
+                    else
+                    {
+                        MessageBox.Show("Favor de Capturar una Cantidad");
+                    }
                 }
-                catch (Exception ex) 
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    if (e.KeyChar == Convert.ToChar(Keys.Escape))
+                    {
+                        txtProducto.Focus();
+                        txtProducto.SelectAll();
+                        txtProducto.Text = "";
+                        txtCantidad.Text = "";
+                        txtCantidad.Enabled = false;
+                        lblProducto.Text = "DATOS DEL PRODUCTO";
+                        lblCosto.Text = "";
+                        lblPrecio.Text = "";
+                    }
                 }
-            }
         }
     }
 }

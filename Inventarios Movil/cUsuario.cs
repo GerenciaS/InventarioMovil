@@ -66,16 +66,29 @@ namespace Inventarios_Movil
             try 
             {
                 SqlConnection cn = Conexion.conectar();
-                SqlCommand comando = new SqlCommand();
-                comando.Connection = cn;
-                comando.CommandText = "select usuarios.usuario,usuarios.nombre,usuarios.clave,usuarios.status,establecimientos_usuario.cod_estab,establecimientos.nombre,establecimientos.DB "
-                + "from usuarios inner join opciones_usuario on usuarios.usuario=opciones_usuario.usuario "
-	            + "inner join establecimientos_usuario on usuarios.usuario=establecimientos_usuario.usuario "
-	            + "inner join establecimientos on establecimientos_usuario.cod_estab=establecimientos.cod_estab "
-                + "where usuarios.usuario=@usuario and opciones_usuario.opcion='F017' and establecimientos_usuario.cod_estab=@estab and establecimientos_usuario.acceso='1'";
-                comando.Parameters.AddWithValue("@usuario", this._usuario);
-                comando.Parameters.AddWithValue("@estab", this._estab);
-                SqlDataReader dr = comando.ExecuteReader();
+                
+                SqlCommand comand = new SqlCommand("SP_BUSCAR_USUARIO", cn);
+                comand.CommandType = CommandType.StoredProcedure;
+                comand.Parameters.AddWithValue("@Usuario", this._usuario);
+                comand.Parameters.AddWithValue("@Establecimiento", this._estab);
+
+                //SqlDataAdapter da = new SqlDataAdapter(comand);
+                //DataTable dr = new DataTable();
+                //da.Fill(dr);
+                SqlDataReader dr = comand.ExecuteReader();
+                
+                //SqlConnection cn = Conexion.conectar();
+                //SqlCommand comando = new SqlCommand();
+                //comando.Connection = cn;
+                //comando.CommandText = "select usuarios.usuario,usuarios.nombre,usuarios.clave,usuarios.status,establecimientos_usuario.cod_estab,establecimientos.nombre,establecimientos.DB "
+                //+ "from usuarios inner join opciones_usuario on usuarios.usuario=opciones_usuario.usuario "
+                //+ "inner join establecimientos_usuario on usuarios.usuario=establecimientos_usuario.usuario "
+                //+ "inner join establecimientos on establecimientos_usuario.cod_estab=establecimientos.cod_estab "
+                //+ "where usuarios.usuario=@usuario and opciones_usuario.opcion='F017' and establecimientos_usuario.cod_estab=@estab and establecimientos_usuario.acceso='1'";
+                //comando.Parameters.AddWithValue("@usuario", this._usuario);
+                //comando.Parameters.AddWithValue("@estab", this._estab);
+                //SqlDataReader dr = comando.ExecuteReader();
+              
                 while(dr.Read())
                 {
                     this._nombre = dr.GetString(1);
